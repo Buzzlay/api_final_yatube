@@ -37,5 +37,5 @@ router.register(
 
 urlpatterns += [
     path('v1/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('', include(router.urls)),
+    path('v1/', include(router.urls)),
 ]
