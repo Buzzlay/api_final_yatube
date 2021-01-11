@@ -16,13 +16,13 @@ class Group(models.Model):
 class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField(
-        "Дата публикации",
+        'Дата публикации',
         auto_now_add=True
     )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="posts"
+        related_name='posts'
     )
     group = models.ForeignKey(
         Group,
@@ -42,16 +42,16 @@ class Comment(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="comments"
+        related_name='comments'
     )
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
-        related_name="comments"
+        related_name='comments'
     )
     text = models.TextField()
     created = models.DateTimeField(
-        "Дата добавления",
+        'Дата добавления',
         auto_now_add=True,
         db_index=True
     )
@@ -79,4 +79,4 @@ class Follow(models.Model):
         verbose_name_plural = 'подписки'
 
     def __str__(self):
-        return f'{self.user} - подписчик автора - {self.author}'
+        return f'{self.user} - подписчик автора - {self.following}'
